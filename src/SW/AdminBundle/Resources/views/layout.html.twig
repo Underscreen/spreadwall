@@ -1,0 +1,23 @@
+{% extends "::admin.html.twig" %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+    	{% for flashMessage in app.session.flashbag.get('success') %}
+    	<div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fa fa-check"></i> {{ flashMessage }}</h5>   
+            </div>
+		{% endfor %}
+		{% for flashMessage in app.session.flashbag.get('danger') %}
+    	<div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fa fa-ban"></i> {{ flashMessage }}</h5>
+            </div>
+		{% endfor %}
+        {% block spread_admin_content %}
+        {% endblock spread_admin_content %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "SWUserBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Profil de {{user.lastname}} {{user.firstname}}{% endblock %}
+
+{% block spread_user_content %}
+
+  <h1 class="title">Profil utilisateur</h1>
+
+  <div class="col-sm-6">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Carte d'identité de {{user.lastname}} {{user.firstname}}</h3>
+        </div>
+        <div class="panel-body">
+           <div class="info-user">
+             <div class="col-xs-1">
+               <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+             </div>
+             <div class="col-xs-11">
+               {{user.address}} <br>
+               {{user.postalcode}} - {{user.city}} <br>
+               <img src="{{ asset('img/countries/'~user.country.alpha2|lower) }}.png" alt="{{user.country.nomFrFr}}"> 
+               {{user.country.nomFrFr}}
+             </div>                                       
+           </div>
+           <div class="info-user">
+             <div class="col-xs-1">
+               <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
+             </div>
+             <div class="col-xs-11">
+               {{user.telephone}} 
+             </div>                                       
+           </div>
+           <div class="info-user">
+             <div class="col-xs-1">
+               <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+             </div>
+             <div class="col-xs-11">
+               {{user.email}} 
+             </div>                                       
+           </div>
+           <div class="info-user">
+             <div class="col-xs-1">
+               <i class="fa fa-birthday-cake"></i>
+             </div>
+             <div class="col-xs-11">
+               {{user.getAge}} ans 
+             </div>                                       
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6"></div>
+
+{% endblock spread_user_content %}
+
+{% block javascripts %}
+    
+{% endblock %}

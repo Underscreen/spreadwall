@@ -1,0 +1,27 @@
+<div class="sb-slidebar sb-left sb-width-custom" data-sb-width="300px">
+  <ul class="menu">
+    {% for category in categories %}
+      <li class="cat {{ category.slug }}-{{category.id}}">
+          <a href="">{{ category.name }} {% if category.getActivities() is not empty %} <span class="glyphicon glyphicon-plus icon-plus" aria-hidden="true"></span> {% endif %}</a>
+          {% if category.getActivities() is not empty %}
+            <ul role="menu" class="sub_menu">
+            {% for activity in category.getActivities() %}
+              <li class="act {{ activity.slug }}-{{activity.id}}">
+                <a href="">{{ activity.name }} {% if activity.getStyles() is not empty %} <span class="glyphicon glyphicon-plus icon-plus" aria-hidden="true"></span> {% endif %}</a>
+                {% if activity.getStyles() is not empty %}
+                  <ul role="menu" class="sub_sub_menu">
+                  {% for style in activity.getStyles() %}
+                    <li class="sty {{ style.slug }}-{{style.id}}">
+                      <a href="">{{ style.name }}</a>
+                    </li>
+                  {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+      </li>
+    {% endfor %}    
+  </ul>      
+</div><!-- sb-slidebar sb-left -->

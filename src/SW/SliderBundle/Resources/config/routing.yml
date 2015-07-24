@@ -1,0 +1,12 @@
+sw_admin_slider:
+    path:     /administration/editer-le-diaporama
+    defaults: { _controller: SWSliderBundle:Admin:sliderAdmin }
+
+sw_admin_slider_add_slide:
+    path:     /administration/editer-le-diaporama/ajout-slide
+    defaults: { _controller: SWSliderBundle:Admin:sliderAdminAddSlide }
+
+sw_admin_slider_add_element:
+    path:     /administration/editer-le-diaporama/ajout-element/{id}
+    defaults: { _controller: SWSliderBundle:Admin:sliderAdminAddElement }
+

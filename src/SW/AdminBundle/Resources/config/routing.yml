@@ -1,0 +1,103 @@
+sw_admin_dashboard:
+    path:     /
+    defaults: { _controller: SWAdminBundle:Dashboard:index }
+
+sw_admin_members:
+    path:     /les-membres
+    defaults: { _controller: SWAdminBundle:User:user}
+
+sw_admin_members_add:
+    path:     /les-membres/ajouter
+    defaults: { _controller: SWAdminBundle:User:userAdd}
+
+sw_admin_members_edit:
+    path:     /les-membres/editer/{id}
+    defaults: { _controller: SWAdminBundle:User:userEdit}
+    requirements:
+        id: \d+
+
+sw_admin_members_delete:
+    path:     /les-membres/supprimer/{id}
+    defaults: { _controller: SWAdminBundle:User:userDelete}
+    requirements:
+        id: \d+
+
+sw_admin_category:
+    path:     /les-categories
+    defaults: { _controller: SWAdminBundle:User:category}
+
+sw_admin_category_add:
+    path:     /les-categories/ajouter
+    defaults: { _controller: SWAdminBundle:User:categoryAdd}
+
+sw_admin_category_edit:
+    path:     /les-categories/editer/{id}
+    defaults: { _controller: SWAdminBundle:User:categoryEdit}
+    requirements:
+        id: \d+
+
+sw_admin_category_delete:
+    path:     /les-categories/supprimer/{id}
+    defaults: { _controller: SWAdminBundle:User:categoryDelete}
+    requirements:
+        id: \d+
+
+sw_admin_activity:
+    path:     /les-activites
+    defaults: { _controller: SWAdminBundle:User:activity}
+
+sw_admin_activity_add:
+    path:     /les-activites/ajouter
+    defaults: { _controller: SWAdminBundle:User:activityAdd}
+
+sw_admin_activity_edit:
+    path:     /les-activites/editer/{id}
+    defaults: { _controller: SWAdminBundle:User:activityEdit}
+    requirements:
+        id: \d+
+
+sw_admin_activity_delete:
+    path:     /les-activites/supprimer/{id}
+    defaults: { _controller: SWAdminBundle:User:activityDelete}
+    requirements:
+        id: \d+
+
+sw_admin_style:
+    path:     /les-styles
+    defaults: { _controller: SWAdminBundle:User:style}
+
+sw_admin_style_add:
+    path:     /les-styles/ajouter
+    defaults: { _controller: SWAdminBundle:User:styleAdd}
+
+sw_admin_style_edit:
+    path:     /les-styles/editer/{id}
+    defaults: { _controller: SWAdminBundle:User:styleEdit}
+    requirements:
+        id: \d+
+
+sw_admin_style_delete:
+    path:     /les-styles/supprimer/{id}
+    defaults: { _controller: SWAdminBundle:User:styleDelete}
+    requirements:
+        id: \d+
+
+sw_admin_taxe:
+    path:     /les-taxes
+    defaults: { _controller: SWAdminBundle:Product:taxe}
+
+sw_admin_taxe_add:
+    path:     /les-taxes/ajouter
+    defaults: { _controller: SWAdminBundle:Product:taxeAdd}
+
+sw_admin_taxe_edit:
+    path:     /les-taxes/editer/{id}
+    defaults: { _controller: SWAdminBundle:Product:taxeEdit}
+    requirements:
+        id: \d+
+
+sw_admin_taxe_delete:
+    path:     /les-taxes/supprimer/{id}
+    defaults: { _controller: SWAdminBundle:Product:taxeDelete}
+    requirements:
+        id: \d+

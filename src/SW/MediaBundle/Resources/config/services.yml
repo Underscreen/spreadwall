@@ -1,0 +1,10 @@
+services:
+#    sw_media.example:
+#        class: SW\MediaBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    uploadService:
+        class: SW\MediaBundle\Service\UploadService
+        arguments: [@doctrine.orm.entity_manager, @logger]
+        tags:
+            - { name: monolog.logger, channel: avatar }

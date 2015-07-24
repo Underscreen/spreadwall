@@ -1,0 +1,52 @@
+sw_home:
+    resource: "@SWHomeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sw_slider:
+    resource: "@SWSliderBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sw_market_place:
+    resource: "@SWMarketPlaceBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+sw_media:
+    resource: "@SWMediaBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sw_admin:
+    resource: "@SWAdminBundle/Resources/config/routing.yml"
+    prefix:   /administration
+
+sw_user:
+    resource: "@SWUserBundle/Resources/config/routing.yml"
+    prefix:   /utilisateur
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+sw_user_login_check:
+    pattern:   /check
+    defaults:  { _controller: SWUserBundle:User:login-check }
+
+sw_user_login:
+    path:     /connexion
+    defaults: { _controller: SWUserBundle:User:login }
+
+sw_user_register:
+    path:     /inscription
+    defaults: { _controller: SWUserBundle:User:register}
+
+sw_user_logout:
+    pattern:   /deconnexion
+    defaults:  { _controller: SWUserBundle:Security:logout }
+
+oneup_uploader:
+    resource: .
+    type: uploader
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+

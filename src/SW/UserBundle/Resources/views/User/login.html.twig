@@ -1,0 +1,41 @@
+{% extends "SWUserBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Connexion{% endblock %}
+
+{% block spread_user_content %}
+
+            <h1 class="title">Connexion</h1>
+            <div class="col-sm-6"> 
+                <div class="col-md-12 well">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.message }}</div>
+                    {% endif %}
+                    <form action="{{ path('sw_user_login_check') }}" method="POST" class="login">
+                        <div class="form-group">
+                        <label for="username">Email :</label>
+                        <input class="form-control" type="username" id="username" name="_username" />
+                        </div>
+                        <div class="form-group">
+                        <label for="password">Mot de passe :</label>
+                        <input class="form-control" type="password" id="password" name="_password" />
+                        </div>
+                        <div class="checkbox">
+                            <label for="remember_me">
+                                <input type="checkbox" id="remember_me" name="_remember_me" /> Se souvenir de moi
+                            </label>
+                        </div>
+                        <button class="btn btn-success" type="submit">Connexion</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                 <div class="well col-md-12">
+                     <p>
+                        Si vous n'avez pas encore de compte, vous pouvez en créer un en cliquant sur le bouton suivant.
+                     </p>
+                     <a class="btn btn-success" href="{{ path('sw_user_register') }}">Créer un compte</a>
+                 </div>
+            </div>
+
+
+{% endblock spread_user_content %}

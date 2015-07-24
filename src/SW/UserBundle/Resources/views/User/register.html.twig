@@ -1,0 +1,117 @@
+{% extends "SWUserBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Inscription{% endblock %}
+{% block stylesheets %}
+{% endblock %}
+{% block spread_user_content %}
+
+            <h1 class="title">Inscription</h1>
+            <div class="col-sm-6"> 
+                <div class="col-md-12 well">                
+                    {{ form_errors(form) }}
+                    <form action="{{ path('sw_user_register') }}" {{ form_enctype(form) }} method="POST" class="inscription">
+                        <div class="form-group">
+                            {{ form_label(form.gender) }}
+                            {{ form_widget(form.gender) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.lastname) }}
+                            {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.firstname) }}
+                            {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.username) }}
+                            {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        <div class="form-group {% if not form.email.vars.valid %} has-error has-feedback{% endif %}">
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                            {% if not form.email.vars.valid %}
+                                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                                <span id="inputError2Status" class="sr-only">(error)</span>
+                                <span id="helpBlock" class="help-block">Cet email est déjà utilisé.</span>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.plainPassword) }}
+                            {{ form_widget(form.plainPassword, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.telephone) }}
+                            {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.birthdate) }}
+                            {{ form_widget(form.birthdate) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.address) }}
+                            {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.postalcode) }}
+                            {{ form_widget(form.postalcode, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.city) }}
+                            {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.country) }}
+                            {{ form_widget(form.country, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                {{ form_widget(form.cgv) }} Acceptez vous les CGV ?
+                            </label>
+                            
+                        </div>
+                        {{ form_rest(form) }}
+
+                        <button class="btn btn-success" type="submit">Inscription</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                 
+            </div>
+
+
+{% endblock spread_user_content %}
+
+{% block javascripts %}
+
+<script type="text/javascript">
+    jQuery(function($){
+       $.datepicker.regional['fr'] = {
+          closeText: 'Fermer',
+          prevText: 'Précédent',
+          nextText: 'Suivant',
+          currentText: 'Courant',
+          monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
+          'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+          monthNamesShort: ['Jan','Fév','Mar','Avr','Mai','Jun',
+          'Jul','Aoû','Sep','Oct','Nov','Déc'],
+          dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+          dayNamesShort: ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],
+          dayNamesMin: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+          weekHeader: 'Sm',
+          dateFormat: 'dd/mm/yy',
+          firstDay: 1,
+          isRTL: false,
+          showMonthAfterYear: false,
+          changeMonth: true,
+          changeYear: true,
+          yearRange: '1940:2000',
+          yearSuffix: ''};
+       $.datepicker.setDefaults($.datepicker.regional['fr']);
+    });
+
+    $("form input.date").datepicker();
+</script>
+    
+{% endblock %}

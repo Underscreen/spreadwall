@@ -1,0 +1,54 @@
+{% extends "SWAdminBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Ajouter une activité{% endblock %}
+
+{% block spread_admin_content %}
+
+	<section class="content-header">
+		<h1 class="title">Ajouter une activité</h1>
+      	<ol class="breadcrumb">
+          <li><a href="{{path('sw_admin_dashboard')}}"><i class="fa fa-dashboard"></i> Tableau de bord</a></li>
+        	<li><a href="{{path('sw_admin_activity')}}"> Toutes les activités</a></li>
+        	<li class="active">Ajouter une activité</li>
+      	</ol>
+    </section>
+	<section class="content">
+	   
+     <div class="col-md-8">
+       <div class="box box-primary">
+                <div class="box-header">
+                  <h3 class="box-title">Ajouter une activité</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                {{ form_errors(form) }}
+                <form role="form" action="{{ path('sw_admin_activity_add') }}" method="post">
+                  <div class="box-body">
+                    <div class="form-group">
+                      {{ form_label(form.name) }}
+                      {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                      {{ form_label(form.detail) }}
+                      {{ form_widget(form.detail, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                      {{ form_label(form.category) }}
+                      {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                  </div><!-- /.box-body -->
+                  {{ form_rest(form) }}
+
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                  </div>
+                </form>
+              </div>
+     </div>
+	 	
+	</section>
+{% endblock spread_admin_content %}
+{% block javascripts %}
+	{% javascripts 'plugins/datatables/jquery.dataTables.js''plugins/datatables/dataTables.bootstrap.js''plugins/slimScroll/jquery.slimscroll.min.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+{% endblock %}

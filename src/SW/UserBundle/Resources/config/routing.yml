@@ -1,0 +1,44 @@
+sw_user_account:
+    path:     /mon-compte
+    defaults: { _controller: SWUserBundle:User:account}
+
+sw_user_profils:
+    path:     /tous-les-artistes
+    defaults: { _controller: SWUserBundle:User:profils}
+
+
+sw_user_profil:
+    path:     /profil/{id}{slug}
+    defaults: { _controller: SWUserBundle:User:profil}
+    requirements:
+                id: \d+
+
+sw_user_account_edit:
+    path:     /mon-compte/edition
+    defaults: { _controller:SWUserBundle:User:edit}
+
+sw_user_step2:
+    path:     /etape-2
+    defaults: { _controller:SWUserBundle:User:step2}
+
+sw_user_artist_register:
+    path:     /complement/artiste
+    defaults: { _controller:SWUserBundle:User:artistRegister}
+
+sw_user_check_category_activity:
+    path:    /complement/artiste/categorie/{id}
+    defaults: { _controller:SWUserBundle:User:checkCategoryArtist}
+    options:
+        expose: true
+
+sw_user_check_activity_style:
+    path:    /complement/artiste/activite/{id}
+    defaults: { _controller:SWUserBundle:User:checkActivityArtist}
+    options:
+        expose: true
+
+sw_user_check_profil_validation:
+    path:    /complement/artiste/validation/{id}
+    defaults: { _controller:SWUserBundle:User:addStyle}
+    options:
+        expose: true

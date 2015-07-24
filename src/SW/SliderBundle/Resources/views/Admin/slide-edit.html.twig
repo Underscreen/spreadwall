@@ -1,0 +1,43 @@
+<div class="nav-tabs-custom">
+  <ul class="nav nav-tabs pull-right">
+    <li class="active"><a href="#tab_1-1" data-toggle="tab">Options</a></li>
+    <li><a href="#tab_2-2" data-toggle="tab">Layers</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab_1-1">
+        {{ form_errors(slideform) }}
+          <form role="form" action="{{ path('sw_admin_slide_edit', { 'id' : id }) }}" method="post">
+            <div class="box-body">
+                <div class="form-group">
+                  {{ form_label(slideform.name) }}
+                  {{ form_widget(slideform.name, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                  {{ form_label(slideform.delai) }}
+                  {{ form_widget(slideform.delai, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                  {{ form_label(slideform.transtion) }}
+                  {{ form_widget(slideform.transition, {'attr': {'class': 'form-control'}}) }}
+                </div>
+              </div><!-- /.box-body -->
+              {{ form_rest(slideform) }}
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-warning">Modifier</button>
+              </div>
+            </form>
+        <form action="{{ oneup_uploader_endpoint('slide') }}" class="dropzone" id="slide-dropzone"></form>
+    </div><!-- /.tab-pane -->
+    <div class="tab-pane" id="tab_2-2">
+      The European languages are members of the same family. Their separate existence is a myth.
+      For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+      in their grammar, their pronunciation and their most common words. Everyone realizes why a
+      new common language would be desirable: one could refuse to pay expensive translators. To
+      achieve this, it would be necessary to have uniform grammar, pronunciation and more common
+      words. If several languages coalesce, the grammar of the resulting language is more simple
+      and regular than that of the individual languages.
+    </div><!-- /.tab-pane -->
+  </div><!-- /.tab-content -->
+</div>
+

@@ -1,0 +1,20 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    password.listener:
+            class: SW\UserBundle\EventListener\PasswordListener
+            arguments:  [@security.encoder_factory]
+            tags:
+                - { name: doctrine.event_subscriber, connection: default }
+
+    sw_media.upload_listener:
+            class: SW\MediaBundle\EventListener\UploadListener
+            arguments: [@uploadService]
+            tags:
+                - { name: kernel.event_listener, event: oneup_uploader.post_persist, method: onUpload }
+    redirect.after.login:
+            class: SW\UserBundle\Redirection\AfterLoginRedirection
+            arguments: [@router]

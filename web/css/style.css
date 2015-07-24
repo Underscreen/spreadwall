@@ -1,0 +1,81 @@
+/* Couleur utiles */ 
+/*
+Rouge : #E54022;
+Rouge foncé : #BB260E;
+
+*/
+.float-right{float:right;}
+.act-container{display:none}
+.sty-container{display:none}
+.loading{top:50%;left:50%;display:none;position: absolute;margin-top:-96px;margin-left:-100px;}
+.bbox{min-height:540px}
+.cbox{min-height:540px}
+h3.title-bbox{min-height:55px}
+a:focus{text-decoration:none}
+.alpha { margin-left: 0; padding-left: 0;}
+.omega { margin-right: 0; padding-right: 0; }
+
+/* menu */
+nav.navigation{height:55px;background: #E54022;box-shadow:0 1px 5px rgba(20,20,20,.2);color:#fff;margin-bottom: 50px;}
+nav.navigation a{color:#fff}
+nav.navigation a:hover{text-decoration:none}
+nav.navigation .left-menu{float: left;background:#BB260E;width:135px;}
+nav.navigation .left-menu h1{text-transform: uppercase;font-size:1.1em;line-height:55px;padding: 0 15px;margin:0;font-weight:bold;overflow: hidden;height:55px;text-align: center;}
+nav.navigation .left-menu h1 a{height:55px;width:100%;display:block;transition:all .4s;-webkit-transition:all .4s;}
+nav.navigation .left-menu h1:hover a.top{margin-top:-55px;}
+nav.navigation .right-menu{float:right;width: 400px;}
+nav.navigation .right-menu li{float:left;width:33.3333333%;line-height:55px;list-style:none;text-align:center;}
+nav.navigation .right-menu li a{display:block;}
+nav.navigation .right-menu li a:hover{background:#BB260E;}
+nav.navigation .center-menu{float:left;width: auto;}
+nav.navigation .center-menu a.sb-toggle-left{padding:0 15px;line-height:55px;height:55px;font-size:1.5em;display:inline-block;cursor:pointer;}
+/* sidebar-left menu */
+.sb-left .menu li{list-style: none;}
+.sb-left .menu{padding-left:0;margin-top:20px;}
+.sb-left .menu a, .sb-left .menu a:hover{color:#fff;text-decoration:none;display:block;padding:10px 30px;border-bottom:1px solid rgba(255,255,255,.2);position:relative;}
+.sb-left .menu a:hover{background:rgba(255,255,255,.2);}
+.sb-left .menu a .icon-plus{position: absolute;right:0px;top:4px;z-index:555;padding: 10px}
+.sb-left .menu .sub_menu,.sb-left .menu .sub_sub_menu{display:none}
+/* sidebar-right menu */
+.sb-right .menu{padding-left:0;margin-top:-10px;}
+.sb-right .menu a, .sb-right .menu a:hover{color:#fff;text-decoration:none;display:block;padding:10px 30px;border-bottom:1px solid rgba(255,255,255,.2);position:relative;}
+.sb-right .menu a:hover{background:rgba(255,255,255,.2);}
+.sb-right .menu .avatar-account{width:90px;height:90px;overflow: hidden;text-align:center;margin:20px auto;border-radius: 50%}
+.sb-right .menu .avatar-account img{width:90px;text-align:center;margin-top:-5px;}
+.sb-right .menu .fullname{color:#fff;text-align:center;border-bottom:1px dotted #fff;height:55px;line-height:55px;background:rgba(255,255,255,.1);}
+/* menu-brand */
+nav.navigation .brand{width:270px;height:55px;margin: 0;}
+nav.navigation .brand li{width:45px;float:left;height:55px;line-height:55px;list-style:none;text-align:center;}
+nav.navigation .brand li a{display:block;font-size:1.4em}
+nav.navigation .brand li a:hover{background:#BB260E;}
+/* --- menu --- */
+/* Home */
+.home-left{padding-right: 0}
+.block-left{min-height:152px;background:#E54022;color:#fff;margin-bottom: 15px;}
+.block-annonceur{min-height:203px;background: #E54022;color:#fff;margin-top: 15px;padding-right:5px;padding-left: 5px;}
+.ls-l.p{padding: 10px;font-size: 1.5em}
+.ls-l.h1{padding: 10px;}
+.ls-l.h2{padding: 10px;}
+.ls-l.h3{padding: 10px;}
+.ls-l.h4{padding: 10px;}
+.ls-l.h5{padding: 10px;}
+.ls-l.h6{padding: 10px;}
+.ls-l.a{padding: 10px;border-radius: 5px;font-size: 1.5em}
+.ls-l.a:hover{text-decoration:none}
+
+/* Top artiste */
+
+
+/* Liste artiste */
+.artist-info{border:1px solid #ccc;overflow:hidden;padding:10px;margin-bottom:35px;position: relative;}
+.artist-info .artist-heading{border-bottom: 1px solid #ccc;background:#E54022;color:#fff;padding-bottom:10px;position:absolute;width:100%;left:0;top:0;padding-left:10px}
+.artist-info .artist-heading .artist-title{font-size: 20px;}
+.artist-info .artist-body{overflow: hidden;}
+.artist-info .artist-body .col-sm-8{padding-top:70px;}
+.user-img{margin-left:12px;margin-bottom:70px;width: 90px;height:90px;overflow:hidden;border:1px solid #ccc;}
+.btn-artist{padding:10px 15px; background:#E54022; color:#fff;border-radius:4px;transition: all .4s;-webkit-transition: all .4s;border:1px solid #BB260E}
+.btn-artist:hover{background:#BB260E;color:#fff;text-decoration:none}
+.tag{padding:5px;background:#3498db;color:#fff;border-radius:4px;margin:4px}
+.tag:hover{padding:5px;background:#2980b9;color:#fff;text-decoration:none}
+.artist-genre,.artist-activite{overflow: hidden;padding:5px 0;}
+.success-profil .alert-success{display: none;}

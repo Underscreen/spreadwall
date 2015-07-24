@@ -1,0 +1,42 @@
+{% extends "SWUserBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Vous êtes un artiste{% endblock %}
+
+{% block spread_user_content %}
+
+  <h1 class="title">Vous êtes un artistes</h1>
+
+  <div class="col-sm-4">
+    <div class="col-md-12 well"> 
+      <h3 class="title-bbox">A quelle catégorie appartenez vous ?</h3>  
+        {% for category in categories %}
+               
+          <button type="button" class="btn btn-default btn-block cat-id" data-id="{{ category.id }}">{{ category.name }} <span class="float-right glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </button> 
+        {% endfor %}
+    </div>
+  </div>
+  <div class="col-sm-4 bbox">
+    <div class="loading"><img src="{{ asset('img/loading.gif') }}"></div>
+    <div class="col-md-12 well act-container">
+      <h3 class="title-bbox">Quel genre d'activité ?</h3>
+      <div class="act-content"></div> 
+    </div>
+  </div>
+    <div class="col-sm-4 cbox">
+    <div class="loading"><img src="{{ asset('img/loading.gif') }}"></div>
+    <div class="col-md-12 well sty-container">
+      <h3 class="title-bbox">Quel style ? ( plusieurs choix possible )</h3>
+      <div class="sty-content"></div> 
+    </div>
+  </div>
+  <div class="col-md-12 success-profil">
+    <div class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          Profil mis à jour avec succès !
+      </div>
+  </div>
+{% endblock spread_user_content %}
+
+{% block javascripts %}
+    
+{% endblock %}

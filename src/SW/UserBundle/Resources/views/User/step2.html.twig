@@ -1,0 +1,27 @@
+{% extends "SWUserBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Etape 2{% endblock %}
+
+{% block spread_user_content %}
+
+  <h1 class="title">Etape 2</h1>
+
+  <div class="col-sm-4">
+    <h2>Artiste</h2>
+        <a class="btn btn-primary btn-lg btn-block" href="{{ path('sw_user_artist_register') }}">Je suis un artiste</a>
+        <br> 
+        <a class="btn btn-primary btn-lg btn-block" href="{{ path('sw_user_artist_register') }}">Je suis un diffuseur</a> 
+  </div>
+  <div class="col-sm-4">
+      <h2>Diffuseur</h2>
+      <a class="btn btn-default btn-lg btn-block" href="{{ path('sw_user_account') }}">Ignorer cette étape</a>
+  </div>
+  <div class="col-sm-4">
+      <h2>Curieux</h2>
+  </div>
+
+{% endblock spread_user_content %}
+
+{% block javascripts %}
+    
+{% endblock %}

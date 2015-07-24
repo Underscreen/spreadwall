@@ -1,0 +1,37 @@
+
+<nav class="navigation" role="navigation">
+    <div class="left-menu">
+      <div class="menu-title">
+        <h1>
+          <a class="top" href="#">Spreadwall</a>
+          <a href="#" class="bottom"><span class="glyphicon glyphicon-home" aria-hidden="true"></a>
+        </h1>
+      </div>
+    </div>
+    <div class="center-menu">
+       <a class="sb-toggle-left">
+        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Menu
+      </a>
+    </div>
+
+    <div class="right-menu">
+      <ul>
+          <li><a href=""><i class="fa fa-envelope"></i> <span class="hidden-xs hidden-sm">Contact</span></a></li>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+          <li><a href=""><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Bonjour {{ app.user.firstname }}</a></li>
+          <li><a href="#" class="sb-toggle-right"><i class="fa fa-user-secret"></i> <span class="hidden-xs hidden-sm">Mon compte</span></a></li>
+        {% else %}
+          <li><a href="{{path('sw_user_login')}}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class="hidden-xs hidden-sm">Connexion</span></a></li>
+          <li><a href="{{path('sw_user_register')}}"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> <span class="hidden-xs hidden-sm">Inscription</span></a></li>
+        {% endif %}
+      </ul>
+
+    </div>
+      <ul class="brand float-right">
+        <li><a href="" rel="me" target="blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="" rel="me" target="blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="" rel="me" target="blank"><i class="fa fa-google-plus"></i></a></li>
+        <li><a href="" rel="me" target="blank"><i class="fa fa-pinterest"></i></a></li>
+        <li><a href="" rel="me" target="blank"><i class="fa fa-instagram"></i></a></li>
+      </ul>  
+</nav>

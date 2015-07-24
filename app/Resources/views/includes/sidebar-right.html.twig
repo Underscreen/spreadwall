@@ -1,0 +1,21 @@
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+<div class="sb-slidebar sb-right sb-width-custom" data-sb-width="250px">
+    <ul class="menu-account menu" role="menu">
+		<li class="fullname align-center">
+			<h4>{{ app.user.lastname }} {{ app.user.firstname }}</h4>
+		</li>
+      {% if app.user.getMedia() is not empty %}
+        <li class="avatar-account"><img src="{{ asset(app.user.media.path) }}" alt="{{app.user.media.name}}"></li>
+      {% endif %}
+      <li><a href="{{path('sw_user_account')}}">Voir mon compte</a></li>
+      <li><a href="{{path('sw_user_account_edit')}}">Modifier mon compte</a></li>
+      {% if app.user.isArtist() == true %}
+          <li><a href="{{path('sw_user_account_edit')}}">Ma boutique</a></li>
+      {% endif %}
+      {% if is_granted('ROLE_ADMIN') %}
+      <li><a href="{{ path('sw_admin_dashboard') }}">Administration</a></li>
+      {% endif %}
+      <li><a href="{{path('sw_user_logout')}}">Déconnexion</a></li>
+    </ul>
+</div>
+{% endif %}

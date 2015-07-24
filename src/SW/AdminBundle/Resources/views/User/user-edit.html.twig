@@ -1,0 +1,93 @@
+{% extends "SWAdminBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Editer un membre{% endblock %}
+
+{% block spread_admin_content %}
+
+	<section class="content-header">
+		<h1 class="title">Editer un membre</h1>
+      	<ol class="breadcrumb">
+          <li><a href="{{path('sw_admin_dashboard')}}"><i class="fa fa-dashboard"></i> Tableau de bord</a></li>
+        	<li><a href="{{path('sw_admin_members')}}"> Tous les membre</a></li>
+        	<li class="active">Editer un membre</li>
+      	</ol>
+    </section>
+	<section class="content">
+	   
+     <div class="col-md-8">
+       <div class="box box-warning">
+                <div class="box-header">
+                  <h3 class="box-title">Editer un membre</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                {{ form_errors(form) }}
+                <form role="form" action="{{ path('sw_admin_members_edit', { 'id' : id }) }}" method="post">
+                  <div class="box-body">
+                    <div class="form-group">
+                            {{ form_label(form.lastname) }}
+                            {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.firstname) }}
+                            {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.username) }}
+                            {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        <div class="form-group {% if not form.email.vars.valid %} has-error has-feedback{% endif %}">
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                            {% if not form.email.vars.valid %}
+                                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                                <span id="inputError2Status" class="sr-only">(error)</span>
+                                <span id="helpBlock" class="help-block">Cet email est déjà utilisé.</span>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form_label(form.telephone) }}
+                            {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.birthdate) }}
+                            {{ form_widget(form.birthdate) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.address) }}
+                            {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.postalcode) }}
+                            {{ form_widget(form.postalcode, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.city) }}
+                            {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.country) }}
+                            {{ form_widget(form.country, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.plainPassword) }}
+                            {{ form_widget(form.plainPassword, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                  </div><!-- /.box-body -->
+                  {{ form_rest(form) }}
+
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-warning">Modifier</button>
+                  </div>
+                </form>
+              </div>
+     </div>
+	 	
+	</section>
+{% endblock spread_admin_content %}
+{% block javascripts %}
+	{% javascripts 'plugins/datatables/jquery.dataTables.js''plugins/datatables/dataTables.bootstrap.js''plugins/slimScroll/jquery.slimscroll.min.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+{% endblock %}

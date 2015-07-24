@@ -1,0 +1,20 @@
+
+<div id="layerslider" style="width:{ {slider.largeur}}px; height: {{slider.hauteur}}px;">
+    <!-- The contents on your slider will be here -->
+    {% for slide in slides %}
+    <div class="ls-slide" data-ls="slidedelay: {{slide.delai}};transition3d: {{slide.transition.id}};">
+        <img src="{{vich_uploader_asset(slide, 'imageFile') }}" class="ls-bg" alt="{{slide.name}}">
+        {% for element in slide.getElements() %}
+            {% if element.genre == 'img' %}
+                <{{element.genre}} class="ls-l" src="{{vich_uploader_asset(element, 'imageFile') }}" data-ls="offsetyout: {{element.outOffsetY}};offsetxout: {{element.outOffsetX}};offsetyin: {{element.inOffsetY}};offsetxin: {{element.inOffsetX}}; rotatein: {{element.inRotate}};rotateout: {{element.outRotate}};delayout:{{element.outDelay}};delayin:{{element.inDelay}};parallaxlevel:{{element.parallax}};" data-src="{{vich_uploader_asset(element, 'imageFile') }}"
+                style="top:{{element.positionTop}};left:{{element.positionLeft}};" />
+            {% elseif element.genre == 'a' %}
+                <{{element.genre}} class="ls-l {{element.genre}}" data-ls="offsetyout: {{element.outOffsetY}};offsetxout: {{element.outOffsetX}};offsetyin: {{element.inOffsetY}};offsetxin: {{element.inOffsetX}}; rotatein: {{element.inRotate}};rotateout: {{element.outRotate}};delayout:{{element.outDelay}};delayin:{{element.inDelay}};parallaxlevel:{{element.parallax}};" style="top:{{element.positionTop}};left:{{element.positionLeft}};background:{{element.background}};color:{{element.color}}" href="{{element.link}}" title="{{element.content}}" >{{element.content}}</{{element.genre}}>
+            {% else %}
+                <{{element.genre}} class="ls-l {{element.genre}}" data-ls="offsetyout: {{element.outOffsetY}};offsetxout: {{element.outOffsetX}};offsetyin: {{element.inOffsetY}};offsetxin: {{element.inOffsetX}}; rotatein: {{element.inRotate}};rotateout: {{element.outRotate}};delayout:{{element.outDelay}};delayin:{{element.inDelay}};parallaxlevel:{{element.parallax}};" style="top:{{element.positionTop}};left:{{element.positionLeft}};background:{{element.background}};color:{{element.color}}">{{element.content}}</{{element.genre}}>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+

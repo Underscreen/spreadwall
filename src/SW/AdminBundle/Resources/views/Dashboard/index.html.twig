@@ -1,0 +1,45 @@
+{% extends "SWAdminBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Tableau de bord{% endblock %}
+
+{% block spread_admin_content %}
+
+    <section class="content-header">
+		<h1 class="title">Tableau de bord</h1>
+    </section>
+	<section class="content">
+		
+	<div class="col-sm-6">
+		<div class="box box-danger">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Les derniers membres</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding">
+                  <ul class="users-list clearfix">
+                  {% for user in users %}
+                    <li>
+                      	{% if user.getMedia() is not empty %}
+                      		<img class="img-circle" width="85" height="85" src="{{ asset(user.media.path) }}" alt="{{user.media.name}}">
+                    	{% endif %}
+                      <a class="users-list-name" target="blank" href="{{path('sw_user_profil', {'id': user.id, 'slug': user.slug})}}">{{user.lastname}} {{user.firstname}}</a>
+                      <span class="users-list-date">Inscrit le {{ user.createdAt|date("d/m/Y") }}</span>
+                    </li>
+                   {% endfor %}
+                  </ul><!-- /.users-list -->
+                </div><!-- /.box-body -->
+                <div class="box-footer text-center">
+                  <a href="{{path('sw_admin_members')}}" class="uppercase">Voir tous les membres</a>
+                </div><!-- /.box-footer -->
+              </div>
+	</div>
+	<div class="col-sm-6"></div>
+	<div class="col-sm-6"></div>
+
+	</section>
+
+
+{% endblock spread_admin_content %}
